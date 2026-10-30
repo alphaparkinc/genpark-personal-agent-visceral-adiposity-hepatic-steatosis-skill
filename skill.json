@@ -1,0 +1,70 @@
+{
+  "name": "genpark-personal-agent-visceral-adiposity-hepatic-steatosis-skill",
+  "version": "1.0.0",
+  "title": "Visceral Adiposity Index (VAI) & Hepatic Steatosis Screener Skill",
+  "description": "Visceral Adiposity Index (VAI) gender-specific lipid-anthropometric equation, Fatty Liver Index (FLI) proxy, and metabolic syndrome risk tiering. Built for GenPark (https://www.genpark.ai).",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.linkedin.com/company/92955550",
+  "category": "personal-agent",
+  "topics": [
+    "visceral-fat",
+    "vai-index",
+    "fatty-liver",
+    "metabolic-health",
+    "personal-agent",
+    "model-context-protocol",
+    "genpark"
+  ],
+  "tools": [
+    {
+      "name": "compute_visceral_adiposity_index",
+      "description": "Compute clinical Visceral Adiposity Index (VAI) from waist circumference, BMI, triglycerides, and HDL.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "waist_circumference_cm": {
+            "type": "number"
+          },
+          "bmi": {
+            "type": "number"
+          },
+          "triglycerides_mmol_l": {
+            "type": "number"
+          },
+          "hdl_mmol_l": {
+            "type": "number"
+          },
+          "gender": {
+            "type": "string",
+            "enum": [
+              "male",
+              "female"
+            ]
+          }
+        },
+        "required": [
+          "waist_circumference_cm",
+          "bmi",
+          "triglycerides_mmol_l",
+          "hdl_mmol_l",
+          "gender"
+        ]
+      }
+    },
+    {
+      "name": "synthesize_visceral_fat_reduction_plan",
+      "description": "Synthesize targeted nutrition and exercise plan to mobilize ectopic visceral and hepatic adipose stores.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "vai_score": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "vai_score"
+        ]
+      }
+    }
+  ]
+}
